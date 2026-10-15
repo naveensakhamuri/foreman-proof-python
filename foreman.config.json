@@ -1,0 +1,37 @@
+{
+  "version": 1,
+  "project": {
+    "name": "Foreman proof (Python)"
+  },
+  "install": {
+    "run": "uv sync",
+    "when": "uv.lock",
+    "creates": ".venv"
+  },
+  "checks": [
+    {
+      "run": "uv run pytest",
+      "when": "always"
+    }
+  ],
+  "stories": {
+    "adapter": "markdown",
+    "dir": "stories"
+  },
+  "ship": {
+    "steps": [
+      "merge-main",
+      "resources",
+      "push",
+      "pr",
+      "ci",
+      "merge"
+    ],
+    "ci": {
+      "required": [
+        "test"
+      ]
+    }
+  },
+  "slots": 2
+}
