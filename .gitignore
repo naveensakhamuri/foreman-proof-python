@@ -1,0 +1,4 @@
+.foreman/
+.venv/
+__pycache__/
+*.pyc
